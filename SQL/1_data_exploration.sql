@@ -48,11 +48,29 @@ FROM
 GROUP BY
     location,
     population
+HAVING
+    MAX((total_cases / population)*100) IS NOT NULL
 ORDER BY
-    percent_population DESC;
+    infection_percent_population DESC;
 
+-- Looking For infection percentage for every country
 
-
+SELECT 
+    location,
+    population,
+    date,
+    MAX(total_cases) AS highest_infection_rate,
+    MAX((total_cases / population)*100) AS infection_percent_population
+FROM
+    covid_deaths
+GROUP BY
+    location,
+    population,
+    date
+HAVING
+    MAX((total_cases / population)*100) IS NOT NULL
+ORDER BY
+    infection_percent_population DESC;
 
 -- looking for the maximum Population vs maximum death rate
 

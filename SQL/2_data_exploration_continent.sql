@@ -7,8 +7,24 @@ FROM
     covid_deaths
 WHERE
     continent is NULL
+AND
+    location not IN ('World','European Union','International')
 GROUP BY
     location
+ORDER BY
+    death_count DESC;
+
+
+-- All Total_Cases VS Total_Deaths
+
+SELECT
+    SUM(new_cases) AS total_cases,
+    SUM(new_deaths) AS death_count,
+    SUM(new_deaths)/SUM(new_cases) *100 AS percentage_of_death
+FROM 
+    covid_deaths
+WHERE
+    continent IS NOT NULL
 ORDER BY
     death_count DESC;
 
