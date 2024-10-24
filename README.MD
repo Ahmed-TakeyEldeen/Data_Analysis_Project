@@ -12,8 +12,88 @@
 - Tableau Dashboards: Create interactive and visually appealing dashboards to present key findings.
 * Python Scripts: Automate data processing tasks and enhance the analysis workflow.
 
-## Feal free to give me your feedback for all my project and where i should improve my skills and work.
+## Feel free to give me your feedback for all my project and where i should improve my skills and work.
 
+
+# SQL 
+
+## First i used SQL for Data Exploratian and Data Cleaning using Postgres SQL
+
+### I used 2 data sets
+- Covid-19
+- Nashville data housing
+
+``` sql
+SELECT 
+    location,
+    date,
+    total_cases,
+    new_cases,
+    total_deaths,
+    population
+FROM
+    covid_deaths;
+
+
+-- Total Cases VS Total Deaths in US OR any Country of your choice
+SELECT 
+    location,
+    date,
+    total_cases,
+    total_deaths,
+    ROUND((total_deaths / total_cases) * 100, 4) AS death_rate 
+FROM
+    covid_deaths
+WHERE
+    location = 'United States'
+ORDER BY 1 ,2;
+
+```
+
+
+``` sql
+
+-- Breaking out the owner address
+
+SELECT 
+    owneraddress,
+    SPLIT_PART(owneraddress,',',1) AS address_before_comma,
+    SPLIT_PART(owneraddress,',',2) address_after_comma,
+    SPLIT_PART(owneraddress,',',3) AS address_after_after_comma
+FROM 
+    nashville_housing_data;
+
+ALTER TABLE 
+    nashville_housing_data
+ADD 
+    ownersplitaddress VARCHAR(255);
+
+ALTER TABLE
+    nashville_housing_data
+ADD
+    ownersplitcity VARCHAR(255);
+
+ALTER TABLE
+    nashville_housing_data
+ADD
+    ownersplitstate VARCHAR(255);
+
+UPDATE 
+    nashville_housing_data
+SET 
+    ownersplitaddress = SPLIT_PART(owneraddress , ',',1);
+
+UPDATE
+    nashville_housing_data
+SET
+    ownersplitcity = SPLIT_PART(owneraddress , ',', 2);
+
+UPDATE 
+    nashville_housing_data
+SET
+    ownersplitstate = SPLIT_PART(owneraddress ,',',3);
+
+```
 
 
 

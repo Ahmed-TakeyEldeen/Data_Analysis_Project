@@ -78,7 +78,7 @@ FROM
     nashville_housing_data;
 
 
--- Breaking out the owener address
+-- Breaking out the owner address
 
 
 
