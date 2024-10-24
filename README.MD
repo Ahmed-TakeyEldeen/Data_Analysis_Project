@@ -109,5 +109,11 @@ https://public.tableau.com/app/profile/ahmed.takeyeldeen/viz/Virus_Dashboard/Das
 
 
 # Python
- 
 
+``` python
+df.plot(kind='scatter' ,x='budget',y='gross')
+plt.title('Budget VS Gross')
+plt.show()
+```
+
+![Result](Python\Visual\output.png)
