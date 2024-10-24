@@ -116,4 +116,4 @@ plt.title('Budget VS Gross')
 plt.show()
 ```
 
-![Result](Python\Visual\output.png)
+![Result](Python/images/output1.png)
