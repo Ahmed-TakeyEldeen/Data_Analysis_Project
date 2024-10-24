@@ -110,6 +110,11 @@ https://public.tableau.com/app/profile/ahmed.takeyeldeen/viz/Virus_Dashboard/Das
 
 # Python
 
+## Budget vs Gross Scatter Plot
+
+### Overview
+This Python script creates a scatter plot to visualize the relationship between the budget of movies and their gross earnings. It uses the Pandas library for data manipulation and Matplotlib for plotting.
+
 ``` python
 df.plot(kind='scatter' ,x='budget',y='gross')
 plt.title('Budget VS Gross')
@@ -117,3 +122,32 @@ plt.show()
 ```
 
 ![Result](Python/images/output1.png)
+
+### Another scatter plot but more easy to understand using line to split the plot
+
+``` python
+sns.regplot(x='budget', y='gross', data=df ,scatter_kws={'color':'teal'},line_kws={'color':'red'})
+
+```
+
+![Result](Python/images/output2.png)
+
+### Movie Features Correlation Heatmap
+This Python script generates a heatmap to visualize the correlations between various numerical features of movies, such as budget, gross earnings, runtime, score, votes, and year. It uses the Pandas library for data manipulation, Seaborn for visualization, and Matplotlib for plotting.
+
+``` python
+df_corr = df[['budget','gross','runtime','score','votes','year']]
+
+new_corr= df_corr.corr(method='pearson')
+sns.heatmap(new_corr,annot=True)
+
+plt.title('Correlations Between Number Values')
+
+plt.xlabel('Movie Featuers')
+plt.ylabel('Movie Featuers')
+plt.tight_layout()
+
+plt.show()
+```
+
+![Result](Python/images/output3.png)
