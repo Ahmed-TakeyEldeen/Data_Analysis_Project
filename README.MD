@@ -96,4 +96,18 @@ SET
 ```
 
 
+# Tableau
+
+## I used Tableau after finishing cleaning to visualize
+- Total Cases accross the world
+- Death Count
+- Infection rate
+- Infection Percent for selected Countries
+
+## Link for my dashboeard 
+https://public.tableau.com/app/profile/ahmed.takeyeldeen/viz/Virus_Dashboard/Dashboard1?publish=yes
+
+
+# Python
+ 
 
